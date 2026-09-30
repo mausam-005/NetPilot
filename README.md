@@ -9,7 +9,7 @@ simulating real-world cloud architecture with DNS, TLS, load balancing, and cach
 |-----|----|------|
 | Mac1 | 10.7.26.16 | Primary DNS (dnsmasq) + test client |
 | Mac2 | 10.7.31.188 | Edge: nginx reverse proxy, load balancer, TLS, Certificate Authority |
-| Mac3 | 10.7.19.137 | Backend A (port 3001) |
+| Mac3 | 10.7.6.148 | Backend A (port 3001) |
 | Mac4 | 10.7.8.65 | Backend B (port 3002) + backup DNS + main test client |
 
 ## How to Run
