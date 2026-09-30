@@ -1,0 +1,15 @@
+=== HTTPS Test Evidence - Tue Sep 29 16:00:46 IST 2026 ===
+
+--- Full curl -v headers ---
+HTTP/2 200 
+server: nginx/1.31.6
+date: Tue, 29 Sep 2026 10:30:47 GMT
+content-type: application/json
+content-length: 32
+x-backend: A
+cache-control: no-store
+x-edge: mac2
+
+
+--- HTTP/2 check ---
+HTTP/2 200 

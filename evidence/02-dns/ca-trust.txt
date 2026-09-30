@@ -1,0 +1,5 @@
+=== CA Trust - Tue Sep 29 15:54:36 IST 2026 ===
+subject=C=IN, O=Team1 Lab, CN=Team1 Lab Root CA
+issuer=C=IN, O=Team1 Lab, CN=Team1 Lab Root CA
+notBefore=Sep 29 09:54:36 2026 GMT
+notAfter=Sep 29 09:54:36 2027 GMT

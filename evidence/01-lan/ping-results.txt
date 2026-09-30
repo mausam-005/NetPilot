@@ -1,0 +1,32 @@
+=== LAN Connectivity Test - Mac1 ===
+Mac1 IP: 10.7.26.16
+
+PING 10.7.26.169 (10.7.26.169): 56 data bytes
+64 bytes from 10.7.26.169: icmp_seq=0 ttl=64 time=90.762 ms
+64 bytes from 10.7.26.169: icmp_seq=1 ttl=64 time=111.671 ms
+64 bytes from 10.7.26.169: icmp_seq=2 ttl=64 time=103.281 ms
+
+--- 10.7.26.169 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 90.762/101.905/111.671/8.591 ms
+PING 10.7.19.137 (10.7.19.137): 56 data bytes
+64 bytes from 10.7.19.137: icmp_seq=0 ttl=64 time=463.071 ms
+64 bytes from 10.7.19.137: icmp_seq=1 ttl=64 time=32.515 ms
+64 bytes from 10.7.19.137: icmp_seq=2 ttl=64 time=40.137 ms
+
+--- 10.7.19.137 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 32.515/178.574/463.071/201.194 ms
+PING 10.7.8.65 (10.7.8.65): 56 data bytes
+64 bytes from 10.7.8.65: icmp_seq=0 ttl=64 time=82.193 ms
+64 bytes from 10.7.8.65: icmp_seq=1 ttl=64 time=23.642 ms
+64 bytes from 10.7.8.65: icmp_seq=2 ttl=64 time=128.827 ms
+
+--- 10.7.8.65 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 23.642/78.221/128.827/43.033 ms
+
+=== Interface Info ===
+	ether 12:42:8c:d3:1a:08
+	inet 10.7.26.16 netmask 0xffffe000 broadcast 10.7.31.255
+Gateway: 10.7.0.1

@@ -1,0 +1,20 @@
+=== Backend Direct Test - Tue Sep 29 15:38:19 IST 2026 ===
+
+--- Mac3 Backend A (10.7.19.137:3001) ---
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    32  100    32    0     0    366      0 --:--:-- --:--:-- --:--:--   367
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.13.6
+Date: Tue, 29 Sep 2026 10:08:19 GMT
+Content-Type: application/json
+Content-Length: 32
+X-Backend: A
+Cache-Control: no-store
+
+{"backend": "A", "status": "ok"}
+--- Mac4 Backend B (10.7.8.65:3002) ---
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+curl: (7) Failed to connect to 10.7.8.65 port 3002 after 1045 ms: Couldn't connect to server

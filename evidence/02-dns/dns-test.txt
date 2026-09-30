@@ -1,0 +1,16 @@
+=== DNS Server Test - Mac1 ===
+Date: Tue Sep 29 15:23:26 IST 2026
+
+--- dig @10.7.26.16 app.team1.test ---
+app.team1.test.		30	IN	A	10.7.26.169
+
+--- dig @10.7.26.16 api.team1.test ---
+api.team1.test.		30	IN	A	10.7.26.169
+
+--- scutil --dns (active nameservers) ---
+  nameserver[0] : 10.7.26.16
+  nameserver[0] : 10.7.26.16
+  if_index : 11 (en0)
+
+--- dnsmasq service status ---
+dnsmasq none            root 

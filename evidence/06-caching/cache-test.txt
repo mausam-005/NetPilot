@@ -1,0 +1,26 @@
+=== HTTP Caching Evidence - Tue Sep 29 16:02:54 IST 2026 ===
+
+--- Step 1: Full 200 response with Cache headers ---
+HTTP/2 200 
+server: nginx/1.31.6
+date: Tue, 29 Sep 2026 10:32:54 GMT
+content-type: application/json
+content-length: 47
+x-backend: B
+cache-control: max-age=60
+etag: "a68081b7c5466f5208106f4864a45a78"
+x-edge: mac2
+
+
+--- Step 2: Conditional request with If-None-Match -> 304 ---
+HTTP/2 304 
+server: nginx/1.31.6
+date: Tue, 29 Sep 2026 10:32:55 GMT
+etag: "a68081b7c5466f5208106f4864a45a78"
+cache-control: max-age=60
+x-backend: A
+x-edge: mac2
+
+
+--- Step 3: No-store endpoint (status) - should NOT cache ---
+cache-control: no-store

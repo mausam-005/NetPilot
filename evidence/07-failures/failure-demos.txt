@@ -1,0 +1,45 @@
+=== FAILURE DEMOS EVIDENCE - Tue Sep 29 16:07:07 IST 2026 ===
+
+=== DEMO 2: DNS Record Points to Wrong IP ===
+Changed app.team1.test to 10.7.19.137 (Mac3, no port 443)
+dig returned: 10.7.19.137
+curl result: Trying 10.7.19.137:443... (connection refused - no nginx on Mac3)
+RESTORED: dig now returns 10.7.26.169 ✅
+
+=== DEMO 5: Wrong Port on Client ===
+curl https://app.team1.test:8443/ -> Connection refused (nothing on 8443)
+nc -vz app.team1.test 8443 -> failed: Connection refused
+nc -vz app.team1.test 443 -> succeeds (when nginx is running)
+
+=== Current DNS config ===
+listen-address=10.7.26.16,127.0.0.1
+address=/app.team1.test/10.7.26.169
+address=/api.team1.test/10.7.26.169
+
+=== DEMO 1: Wrong DNS Server on Client ===
+Action: Set DNS to 10.7.19.137 (Mac3 - not a DNS server)
+dig result: ";; no servers could be reached" - DNS completely failed
+ping 10.7.26.169: 2/2 packets received, 0% loss - IP layer works independently
+Key lesson: DNS failure stops name resolution but NOT IP connectivity
+RESTORED: dig app.team1.test → 10.7.26.169 ✅
+
+=== DEMO 2: DNS Record Wrong IP ===
+Changed app.team1.test → 10.7.19.137 (Mac3, no nginx)
+dig returned 10.7.19.137 correctly (DNS worked, but wrong destination)
+curl: Trying 10.7.19.137:443... Connection refused (Mac3 has no port 443)
+Key lesson: DNS resolved fine but TCP connection failed at application layer
+RESTORED: dig app.team1.test → 10.7.26.169 ✅
+
+=== DEMO 5: Wrong Port on Client ===
+curl https://app.team1.test:8443/ → Connection refused
+nc -vz app.team1.test 8443 → failed: Connection refused
+nc -vz app.team1.test 443 → succeeded (correct port works)
+Key lesson: Host reachable, specific port not listening
+
+=== DEMO 4: Both Backends Stopped ===
+Action: Mac3 (Ctrl+C on Backend A) + Mac4 (Ctrl+C on Backend B) simultaneously
+curl result: HTTP/2 504 Gateway Timeout
+nginx/1.31.6 returned 504 — waited for upstreams but both timed out
+Key lesson: DNS resolved OK, TCP/TLS to nginx OK, but no backend = 504
+Proves: nginx passive health check + proxy_next_upstream working
+RESTORED: Both backends restarted after screenshot
